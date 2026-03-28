@@ -195,19 +195,19 @@ export default function SukiPortfolio() {
               </div>
 
               <div className="flex flex-col items-center">
-                {/* Constrained, responsive profile image with WebP fallback and lazy loading */}
+                {/* Constrained, responsive profile image with lazy loading */}
                 <motion.div whileInView={{ scale: [0.98, 1], opacity: [0, 1] }} transition={{ duration: 0.5 }} className="w-56 h-56 sm:w-64 sm:h-64 rounded-2xl overflow-hidden border border-gray-700 shadow-2xl bg-gray-800">
-                  <picture>
-                    <source srcSet="/profile.webp" type="image/webp" />
-                    <img
-                      src="/profile.jpg"
-                      alt="Wedha Prabha"
-                      onError={(e) => (e.currentTarget.src = "/profile-placeholder.png")}
-                      className="w-full h-full object-cover object-top"
-                      style={{ maxHeight: "100%", display: "block" }}
-                      loading="lazy"
-                    />
-                  </picture>
+                  <img
+                    src="/Profile.jpeg"
+                    alt="Wedha Prabha"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/vite.svg";
+                    }}
+                    className="w-full h-full object-cover"
+                    style={{ maxHeight: "100%", display: "block", objectPosition: "50% 60%" }}
+                    loading="lazy"
+                  />
                 </motion.div>
 
                 <div className="mt-4 flex gap-4 text-gray-300">
